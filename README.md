@@ -1,12 +1,13 @@
 # Loan Approval Prediction System
 An web applicationthat predicts whether a person will get the loan or not.
 
-#Data Analysis: pandas, numpy, seaborn, matplotlib
 
-#Machine Learning: Logistic Regression using sklearn
+Data Analysis: pandas, numpy, seaborn, matplotlib
 
-#For Frontend: HTML & CSS 
+Machine Learning: Logistic Regression using sklearn
 
-#For Backend: Python
+For Frontend: HTML & CSS 
 
-#Web Framework: Flask
+For Backend: Python
+
+Web Framework: Flask
