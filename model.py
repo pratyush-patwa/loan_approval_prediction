@@ -14,34 +14,6 @@ train = pd.read_csv("train.csv")
 train['Loan_Status'].value_counts(normalize=True)
 train['Loan_Status'].value_counts().plot.bar()
 
-plt.figure(1)
-plt.subplot(221)
-train['Gender'].value_counts(normalize=True).plot.bar(figsize=(20, 10), title='Gender')
-plt.subplot(222)
-train['Married'].value_counts(normalize=True).plot.bar(title='Married')
-plt.subplot(223)
-train['Self_Employed'].value_counts(normalize=True).plot.bar(title='Self_Employed')
-plt.subplot(224)
-train['Credit_History'].value_counts(normalize=True).plot.bar(title='Credit_History')
-plt.show()
-
-plt.figure(1)
-plt.subplot(131)
-train['Dependents'].value_counts(normalize=True).plot.bar(figsize=(24, 6), title='Dependents')
-plt.subplot(132)
-train['Education'].value_counts(normalize=True).plot.bar(title='Education')
-plt.subplot(133)
-train['Property_Area'].value_counts(normalize=True).plot.bar(title='Property_Area')
-plt.show()
-
-plt.figure(1)
-plt.subplot(121)
-sns.distplot(train['ApplicantIncome']);
-plt.subplot(122)
-train['ApplicantIncome'].plot.box(figsize=(16, 5))
-plt.show()
-
-train.boxplot(column='ApplicantIncome', by='Education')
 
 train.isnull().sum()
 
@@ -104,6 +76,7 @@ regressor.fit(X, y)
 pickle.dump(regressor, open('model.pkl', 'wb'))
 
 model = pickle.load(open('model.pkl', 'rb'))
+
 
 # pred_cv = regressor.predict(x_cv)
 #
