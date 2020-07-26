@@ -1,11 +1,13 @@
 import math
+import os
 import numpy as np
 import pandas as pd
 from flask import Flask, request, render_template
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open("D:\\ML-Projects\\loan_approval_prediction\\model.pkl", 'rb'))
+filename = 'model.pkl'
+model = pickle.load(open(filename, 'rb'))
 
 
 @app.route('/')
@@ -38,14 +40,14 @@ def predict():
     balance = float(total_income - (emi*1000))
 
     final_features = np.array([[gender, married, dependents, education, self_employed, credit_history, property_area, log_loan_amt, total_income, log_total_income,  emi, balance]])
-
+    expected_emi = ((loan_amt *1000) + (loan_amt *80 )) /loan_amt_term
     data = pd.DataFrame(final_features)
     print(final_features)
     prediction = model.predict(data)
     output = prediction[0]
     print(output)
     if output == 1:
-        return render_template('Congrats.html')
+        return render_template('Congrats.html', monthly_emi='Your emi would be $ {} with a interest of 8%'.format(expected_emi))
     else:
         return render_template('Denied.html')
 
