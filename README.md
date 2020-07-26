@@ -17,3 +17,8 @@ Achieved 82% accuracy using Logistic Regression.
 
 ## Web Framework: 
  Flask
+ 
+ ## Try the app
+ 
+ 
+ https://loan-approval-prediction-app.herokuapp.com/
